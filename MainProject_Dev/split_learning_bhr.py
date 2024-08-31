@@ -29,9 +29,9 @@ sf.init(['alice', 'bob','carol'], address='local')
 alice, bob,carol = sf.PYU('alice'), sf.PYU('bob'), sf.PYU('carol')
 
 path_dict = {
-    alice: 'Commerce-Security-Governance-Over-privacy-alliance-CSGO--main/Commerce-Security-Governance-Over-privacy-alliance-CSGO--main/DataGen/leveled_orders_JD.csv',
-    bob: 'Commerce-Security-Governance-Over-privacy-alliance-CSGO--main/Commerce-Security-Governance-Over-privacy-alliance-CSGO--main/DataGen/leveled_orders_TB.csv',
-    carol: 'Commerce-Security-Governance-Over-privacy-alliance-CSGO--main/Commerce-Security-Governance-Over-privacy-alliance-CSGO--main/DataGen/leveled_Credit_score.csv'
+    alice: '/home/lwzheng/workspace/sf/DataGen/leveled_orders_JD.csv',
+    bob: '/home/lwzheng/workspace/sf/DataGen/leveled_orders_TB.csv',
+    carol: '/home/lwzheng/workspace/sf/DataGen/leveled_Credit_score.csv'
 
 }
 
@@ -203,7 +203,7 @@ base_model_dict = {alice: model_base_alice, bob: model_base_bob, carol: carol_mo
 
 
 # Define DP operations
-train_batch_size = 1000
+train_batch_size = 512
 gaussian_embedding_dp = GaussianEmbeddingDP(
     noise_multiplier=0.5,
     l2_norm_clip=1.0,
@@ -282,9 +282,9 @@ evaluator = sl_model.evaluate(test_data, test_label, batch_size=10)
 print(evaluator)
 
 # 调用函数
-order_amount_path = 'Commerce-Security-Governance-Over-privacy-alliance-CSGO--main/Commerce-Security-Governance-Over-privacy-alliance-CSGO--main/DataGen/leveled_Total.csv'
-credit_score_path = 'Commerce-Security-Governance-Over-privacy-alliance-CSGO--main/Commerce-Security-Governance-Over-privacy-alliance-CSGO--main/DataGen/leveled_Credit_score.csv'
-output_path = 'Commerce-Security-Governance-Over-privacy-alliance-CSGO--main/Commerce-Security-Governance-Over-privacy-alliance-CSGO--main/DataGen/transaction_limits.csv'
+order_amount_path = '/home/lwzheng/workspace/sf/DataGen/leveled_Total.csv'
+credit_score_path = '/home/lwzheng/workspace/sf/DataGen/leveled_Credit_score.csv'
+output_path = '/home/lwzheng/workspace/sf/DataGen/transaction_limits.csv'
 
 calculate_transaction_limits(order_amount_path, credit_score_path, output_path)
 
